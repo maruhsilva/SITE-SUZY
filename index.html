@@ -10,14 +10,14 @@
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
     
     <script src="https://unpkg.com/lucide@latest"></script>
-    
+    <script src="https://cdn.jsdelivr.net/npm/page-flip/dist/js/page-flip.browser.js"></script>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
     <nav class="navbar" id="navbar">
         <div class="container nav-container">
-            <div class="logo">STUDIO.</div>
+            <div class="logo">DESIGN.</div>
             <div class="desktop-menu">
                 <a href="#work">Trabalhos</a>
                 <a href="#services">Serviços</a>
@@ -157,7 +157,7 @@
         </div>
         
         <div class="about-image-wrapper">
-            <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=687&auto=format&fit=crop" alt="Foto da Designer">
+            <img src="" alt="Foto da Designer">
         </div>
     </div>
 </section>
@@ -174,42 +174,79 @@
                 </div>
             </div>
             
-            <form class="contact-form">
+            <form class="contact-form" id="whatsapp-form">
                 <div class="form-group">
                     <label>Nome</label>
-                    <input type="text" placeholder="Seu nome" required>
+                    <input type="text" id="form-name" placeholder="Seu nome" required>
                 </div>
                 <div class="form-group">
                     <label>E-mail</label>
-                    <input type="email" placeholder="seu@email.com" required>
+                    <input type="email" id="form-email" placeholder="seu@email.com" required>
                 </div>
                 <div class="form-group">
                     <label>Mensagem</label>
-                    <textarea rows="4" placeholder="Conte sobre seu projeto..." required></textarea>
+                    <textarea id="form-msg" rows="4" placeholder="Conte sobre seu projeto..." required></textarea>
                 </div>
-                <button type="submit" class="submit-btn">Enviar Mensagem</button>
+                <button type="submit" class="submit-btn">Enviar via WhatsApp</button>
             </form>
         </div>
     </section>
 
     <footer>
         <div class="container copy">
-            <p>&copy; 2025 Studio Editorial. Todos os direitos reservados.</p>
+            <p>&copy; 2025 <strong>Design</strong>. Todos os direitos reservados. | <a href=""></a>MS WebWork</p>
         </div>
     </footer>
 
     <div id="project-modal" class="modal">
-        <div class="modal-content">
-            <span class="close-modal">&times;</span>
-            <div class="modal-body">
-                <img src="" id="modal-img" alt="">
-                <div class="modal-text">
-                    <h3 id="modal-title">Título</h3>
-                    <p id="modal-desc">Descrição</p>
-                    <a href="#" class="modal-link">Ver projeto completo <i data-lucide="arrow-right"></i></a>
+    <div class="modal-content book-modal">
+        <span class="close-modal">&times;</span>
+        
+        <div class="book-container">
+            <div id="book">
+                <div class="my-page" data-density="hard">
+                    <div class="page-content cover">
+                        <h2 id="book-title-display">Título do Livro</h2>
+                        <span id="book-author-display">Editorial Design</span>
+                    </div>
+                </div>
+
+                <div class="my-page">
+                    <div class="page-content text-page">
+                        <h3>Introdução</h3>
+                        <p>Esta é uma demonstração de como o design editorial ganha vida na web.</p>
+                        <p>Clique no canto da página ou arraste para virar.</p>
+                    </div>
+                </div>
+
+                <div class="my-page">
+                    <div class="page-content image-page">
+                        <img src="https://images.unsplash.com/photo-1544947950-fa07a98d237f?q=80&w=400&auto=format&fit=crop" alt="Página visual">
+                    </div>
+                </div>
+
+                <div class="my-page">
+                    <div class="page-content text-page">
+                        <h3>O Grid</h3>
+                        <p>A estrutura invisível que segura todo o conteúdo.</p>
+                        <div class="page-number">3</div>
+                    </div>
+                </div>
+
+                <div class="my-page">
+                    <div class="page-content image-page">
+                         <img src="https://images.unsplash.com/photo-1512820790803-83ca734da794?q=80&w=400&auto=format&fit=crop" alt="Página visual 2">
+                    </div>
+                </div>
+
+                <div class="my-page" data-density="hard">
+                    <div class="page-content cover back-cover">
+                        <p>STUDIO.</p>
+                    </div>
                 </div>
             </div>
         </div>
+    </div>
     </div>
 
     <a href="https://wa.me/55999999999" target="_blank" class="floating-wpp" aria-label="Conversar no WhatsApp">
