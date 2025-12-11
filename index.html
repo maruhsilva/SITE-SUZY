@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Studio Editorial | Portfólio</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <nav class="navbar" id="navbar">
+        <div class="container nav-container">
+            <div class="logo">STUDIO.</div>
+            <div class="desktop-menu">
+                <a href="#work">Trabalhos</a>
+                <a href="#services">Serviços</a>
+                <a href="#testimonials">Clientes</a>
+                <a href="#about">Sobre</a>
+                <a href="#contact" class="btn-contact">Fale Comigo</a>
+            </div>
+            <button class="mobile-toggle" id="menu-btn"><i data-lucide="menu"></i></button>
+        </div>
+        <div class="mobile-menu" id="mobile-menu">
+            <a href="#work">Trabalhos</a>
+            <a href="#services">Serviços</a>
+            <a href="#about">Sobre</a>
+            <a href="#contact">Contato</a>
+        </div>
+    </nav>
+
+    <section class="hero container reveal">
+        <h1>Design que conta <br> <span class="italic">histórias.</span></h1>
+        <p class="subtitle">Especialista em design editorial, transformando manuscritos e ideias em experiências visuais tangíveis através de tipografia e grids.</p>
+        <div class="hero-stats">
+            <div><span class="number">8+</span><span class="label">Anos de XP</span></div>
+            <div><span class="number">50+</span><span class="label">Livros</span></div>
+        </div>
+    </section>
+
+    <section id="services" class="services-section reveal">
+        <div class="container">
+            <div class="section-header">
+                <h2>O que eu faço</h2>
+                <p>Soluções visuais completas para editoras e autores.</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <i data-lucide="layers" class="service-icon"></i>
+                    <h3>Projeto Gráfico</h3>
+                    <p>Concepção visual completa para livros e revistas, definindo grids e identidade visual.</p>
+                </div>
+                <div class="service-card">
+                    <i data-lucide="type" class="service-icon"></i>
+                    <h3>Diagramação</h3>
+                    <p>Organização meticulosa de texto e imagens, garantindo fluidez de leitura e hierarquia.</p>
+                </div>
+                <div class="service-card">
+                    <i data-lucide="book-open" class="service-icon"></i>
+                    <h3>Design de Capas</h3>
+                    <p>Criação de capas impactantes que comunicam a essência da obra e se destacam.</p>
+                </div>
+                <div class="service-card">
+                    <i data-lucide="pen-tool" class="service-icon"></i>
+                    <h3>Publicações Digitais</h3>
+                    <p>Adaptação e criação de layouts responsivos para E-books e revistas digitais.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="work" class="work-section container reveal">
+        <h2 class="section-title">Projetos Selecionados</h2>
+        <div class="projects-grid">
+            <div class="project-card" data-title="Revista Vanguarda" data-desc="Diagramação completa e direção de arte para revista de moda trimestral. Foco em tipografia display e fotografia sangrada." data-img="https://images.unsplash.com/photo-1544947950-fa07a98d237f?q=80&w=800&auto=format&fit=crop">
+                <div class="project-image">
+                    <img src="https://images.unsplash.com/photo-1544947950-fa07a98d237f?q=80&w=800&auto=format&fit=crop" alt="Projeto Revista">
+                </div>
+                <div class="project-info">
+                    <div><h3>Revista Vanguarda</h3><span>Editorial / Moda</span></div>
+                    <i data-lucide="arrow-right" class="arrow-icon"></i>
+                </div>
+            </div>
+
+            <div class="project-card" data-title="O Jardim Secreto" data-desc="Redesign de capa para edição de luxo de clássico da literatura. Uso de ilustrações botânicas e acabamento em hot-stamp." data-img="https://images.unsplash.com/photo-1512820790803-83ca734da794?q=80&w=800&auto=format&fit=crop">
+                <div class="project-image">
+                    <img src="https://images.unsplash.com/photo-1512820790803-83ca734da794?q=80&w=800&auto=format&fit=crop" alt="Projeto Livro">
+                </div>
+                <div class="project-info">
+                    <div><h3>O Jardim Secreto</h3><span>Livro / Capa</span></div>
+                    <i data-lucide="arrow-right" class="arrow-icon"></i>
+                </div>
+            </div>
+
+             <div class="project-card" data-title="Relatório Anual" data-desc="Diagramação de relatório financeiro transformando dados complexos em infográficos claros e layout arejado." data-img="https://images.unsplash.com/photo-1589829085413-56de8ae18c73?q=80&w=800&auto=format&fit=crop">
+                <div class="project-image">
+                    <img src="https://images.unsplash.com/photo-1589829085413-56de8ae18c73?q=80&w=800&auto=format&fit=crop" alt="Relatório">
+                </div>
+                <div class="project-info">
+                    <div><h3>Relatório 2024</h3><span>Corporativo</span></div>
+                    <i data-lucide="arrow-right" class="arrow-icon"></i>
+                </div>
+            </div>
+
+            <div class="project-card" data-title="Coleção Clássicos" data-desc="Identidade visual unificada para uma coleção de 10 volumes. Grid modular e paleta de cores sóbria." data-img="https://images.unsplash.com/photo-1532012197267-da84d127e765?q=80&w=800&auto=format&fit=crop">
+                <div class="project-image">
+                    <img src="https://images.unsplash.com/photo-1532012197267-da84d127e765?q=80&w=800&auto=format&fit=crop" alt="Coleção">
+                </div>
+                <div class="project-info">
+                    <div><h3>Coleção Clássicos</h3><span>Projeto Gráfico</span></div>
+                    <i data-lucide="arrow-right" class="arrow-icon"></i>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="testimonials" class="testimonials-section reveal">
+        <div class="container">
+            <h2 class="section-title center">O que dizem</h2>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <p class="quote">"O trabalho superou todas as expectativas. A diagramação transformou nosso texto em uma obra de arte."</p>
+                    <div class="author">- Editora Cultura</div>
+                </div>
+                <div class="testimonial-card">
+                    <p class="quote">"Profissionalismo impecável e um olhar estético raro. O livro ficou incrível."</p>
+                    <div class="author">- Carlos M., Autor Independente</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="about-section reveal">
+    <div class="container about-container">
+        <div class="about-content">
+            <span class="label-small">Sobre a Designer</span>
+            <h2>"Acredito que a página é um espaço arquitetônico."</h2>
+            <div class="separator"></div>
+            <p>Cada margem, cada entrelinha e cada escolha tipográfica contribui para a imersão do leitor. Meu trabalho é garantir que nada atrapalhe essa jornada, transformando texto puro em uma experiência visual fluida.</p>
+            
+            <div class="stats-row">
+                <div class="stat">
+                    <strong>8+</strong>
+                    <span>Anos de XP</span>
+                </div>
+                <div class="stat">
+                    <strong>50+</strong>
+                    <span>Livros</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="about-image-wrapper">
+            <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=687&auto=format&fit=crop" alt="Foto da Designer">
+        </div>
+    </div>
+</section>
+
+    <section id="contact" class="contact-section reveal">
+        <div class="container contact-container">
+            <div class="contact-info">
+                <h2>Vamos iniciar um projeto?</h2>
+                <p>Preencha o formulário ou envie um e-mail direto.</p>
+                <a href="mailto:ola@exemplo.com" class="email-link"><i data-lucide="mail"></i> ola@exemplo.com</a>
+                <div class="socials">
+                    <a href="#"><i data-lucide="instagram"></i></a>
+                    <a href="#"><i data-lucide="linkedin"></i></a>
+                </div>
+            </div>
+            
+            <form class="contact-form">
+                <div class="form-group">
+                    <label>Nome</label>
+                    <input type="text" placeholder="Seu nome" required>
+                </div>
+                <div class="form-group">
+                    <label>E-mail</label>
+                    <input type="email" placeholder="seu@email.com" required>
+                </div>
+                <div class="form-group">
+                    <label>Mensagem</label>
+                    <textarea rows="4" placeholder="Conte sobre seu projeto..." required></textarea>
+                </div>
+                <button type="submit" class="submit-btn">Enviar Mensagem</button>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container copy">
+            <p>&copy; 2025 Studio Editorial. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <div id="project-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <div class="modal-body">
+                <img src="" id="modal-img" alt="">
+                <div class="modal-text">
+                    <h3 id="modal-title">Título</h3>
+                    <p id="modal-desc">Descrição</p>
+                    <a href="#" class="modal-link">Ver projeto completo <i data-lucide="arrow-right"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <a href="https://wa.me/55999999999" target="_blank" class="floating-wpp" aria-label="Conversar no WhatsApp">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M3 21l1.65-3.8a9 9 0 1 1 3.4 2.9L3 21" />
+            <path d="M13 10a2 2 0 0 0-2 2 2 2 0 0 0 2 2" /> 
+        </svg>
+    </a>
+
+    <script src="script.js"></script>
+</body>
+</html>
