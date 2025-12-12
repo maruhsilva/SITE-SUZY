@@ -403,3 +403,44 @@ body.modal-open { overflow: hidden !important; height: 100vh; }
     .chat-window { width: 280px; height: 350px; }
     .close-modal { top: 20px; right: 20px; background: rgba(0,0,0,0.6); }
 }
+
+/* --- ESTILO DOS CAMPOS DE TEXTO DO CHAT --- */
+.chat-input-wrapper {
+    display: flex;
+    gap: 5px;
+    width: 100%;
+    padding: 0 5px;
+}
+
+.chat-input {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    outline: none;
+    font-family: var(--font-sans);
+    font-size: 0.9rem;
+}
+
+.chat-input:focus {
+    border-color: #1c1917;
+}
+
+.chat-send-btn {
+    background-color: #1c1917;
+    color: #fff;
+    border: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.2s;
+}
+
+.chat-send-btn:hover {
+    transform: scale(1.1);
+    background-color: #57534e;
+}
