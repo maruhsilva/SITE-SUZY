@@ -254,12 +254,39 @@
     </div>
     </div>
 
-    <a href="https://wa.me/55999999999" target="_blank" class="floating-wpp" aria-label="Conversar no WhatsApp">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M3 21l1.65-3.8a9 9 0 1 1 3.4 2.9L3 21" />
-            <path d="M13 10a2 2 0 0 0-2 2 2 2 0 0 0 2 2" /> 
-        </svg>
-    </a>
+    <div id="chat-widget" style="position: fixed; bottom: 30px; right: 30px; z-index: 9999; display: flex; flex-direction: column; align-items: flex-end;">
+    
+        <div id="chat-window" class="chat-window">
+            <div class="chat-header">
+                <div class="header-left">
+                    <button id="chat-back-btn" class="icon-btn" style="display: none;" title="Voltar">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5"/><path d="M12 19l-7-7 7-7"/></svg>
+                    </button>
+                    <span>Assistente Studio.</span>
+                </div>
+                
+                <div class="header-right">
+                    <button id="chat-restart-btn" class="icon-btn" title="Reiniciar Conversa">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 4v6h-6"/><path d="M1 20v-6h6"/><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/></svg>
+                    </button>
+                    <button id="close-chat" class="icon-btn" title="Fechar">&times;</button>
+                </div>
+            </div>
+    
+            <div id="chat-body" class="chat-body">
+                </div>
+    
+            <div id="chat-options" class="chat-options">
+                </div>
+        </div>
+    
+        <button id="wpp-trigger" class="chat-trigger-btn">
+            <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M3 21l1.65-3.8a9 9 0 1 1 3.4 2.9L3 21" />
+                <path d="M12.5 10a2 2 0 0 0-2 2 2 2 0 0 0 2 2" /> 
+            </svg>
+        </button>
+    </div>
 
     <script src="script.js"></script>
 </body>

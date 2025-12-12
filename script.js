@@ -1,15 +1,21 @@
-// Inicializa ícones
+// ======================================================
+// 1. INICIALIZAÇÃO E UI GERAL
+// ======================================================
+
+// Inicializa ícones Lucide
 lucide.createIcons();
 
-// --- Lógica do Menu ---
+// --- Menu Mobile ---
 const menuBtn = document.getElementById('menu-btn');
 const mobileMenu = document.getElementById('mobile-menu');
 const menuLinks = mobileMenu.querySelectorAll('a');
 
-menuBtn.addEventListener('click', (e) => {
-    e.stopPropagation();
-    mobileMenu.classList.toggle('active');
-});
+if (menuBtn) {
+    menuBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        mobileMenu.classList.toggle('active');
+    });
+}
 
 menuLinks.forEach(link => {
     link.addEventListener('click', () => {
@@ -18,21 +24,21 @@ menuLinks.forEach(link => {
 });
 
 document.addEventListener('click', (e) => {
-    if (mobileMenu.classList.contains('active')) {
+    if (mobileMenu && mobileMenu.classList.contains('active')) {
         if (!mobileMenu.contains(e.target) && !menuBtn.contains(e.target)) {
             mobileMenu.classList.remove('active');
         }
     }
 });
 
-// --- Navbar Scroll ---
+// --- Navbar Scroll Effect ---
 const navbar = document.getElementById('navbar');
 window.addEventListener('scroll', () => {
     if (window.scrollY > 50) navbar.classList.add('scrolled');
     else navbar.classList.remove('scrolled');
 });
 
-// --- Scroll Reveal ---
+// --- Scroll Reveal Animation ---
 const revealElements = document.querySelectorAll('.reveal');
 const revealOnScroll = () => {
     const windowHeight = window.innerHeight;
@@ -45,10 +51,10 @@ const revealOnScroll = () => {
     });
 };
 window.addEventListener('scroll', revealOnScroll);
-revealOnScroll();
+revealOnScroll(); // Dispara uma vez ao carregar
 
 // ======================================================
-// --- MODAL FLIPBOOK (Versão Final Completa) ---
+// 2. MODAL FLIPBOOK (LIVRO INTERATIVO)
 // ======================================================
 const modal = document.getElementById('project-modal');
 const closeModal = document.querySelector('.close-modal');
@@ -58,7 +64,7 @@ const bookContainer = document.querySelector('.book-container');
 // Variável global do livro
 let pageFlip = null;
 
-// Função Renderiza Página
+// Função Renderiza Página do PDF para Canvas
 const renderPageToCanvas = async (pdf, pageNumber, targetWidth, targetHeight) => {
     const page = await pdf.getPage(pageNumber);
     const unscaledViewport = page.getViewport({ scale: 1 });
@@ -93,6 +99,7 @@ const toggleBodyScroll = (lock) => {
     else document.body.classList.remove('modal-open');
 };
 
+// Evento de Clique nos Projetos
 projectCards.forEach(card => {
     card.addEventListener('click', async () => {
         const pdfUrl = card.getAttribute('data-pdf');
@@ -137,12 +144,12 @@ projectCards.forEach(card => {
                     for (let i = 1; i <= totalPdfPages; i++) pagesToRender.push(i);
                 }
             } else {
-                // Se não tem seleção, carrega até 20 páginas
+                // Se não tem seleção, carrega até 20 páginas (limite de segurança)
                 const maxPages = Math.min(totalPdfPages, 20);
                 for (let i = 1; i <= maxPages; i++) pagesToRender.push(i);
             }
 
-            // Definições de Tamanho
+            // Definições de Tamanho Responsivo
             const screenW = window.innerWidth;
             const screenH = window.innerHeight;
             const isMobile = screenW < 768;
@@ -169,7 +176,6 @@ projectCards.forEach(card => {
             const bookElement = document.createElement('div');
             bookElement.id = 'book';
             // Importante: book-content-hidden deve ter 'position: absolute' e 'opacity: 0' no CSS
-            // isso impede que ele crie rolagem enquanto carrega
             bookElement.className = 'book-content-hidden'; 
             
             // Adiciona o livro ao container (agora temos Spinner + Livro Oculto)
@@ -183,7 +189,7 @@ projectCards.forEach(card => {
                 }
             }
 
-            // Configurações da biblioteca
+            // Configurações da biblioteca PageFlip
             const settings = {
                 width: bookWidth,
                 height: bookHeight,
@@ -249,4 +255,164 @@ const closeBookModal = () => {
 if (closeModal) closeModal.addEventListener('click', closeBookModal);
 window.addEventListener('click', (e) => {
     if (e.target == modal) closeBookModal();
+});
+
+
+// ======================================================
+// 3. CHATBOT AVANÇADO (Árvore de Decisão)
+// ======================================================
+const triggerBtn = document.getElementById('wpp-trigger');
+const chatWin = document.getElementById('chat-window');
+const chatBodyDiv = document.getElementById('chat-body');
+const chatOptsDiv = document.getElementById('chat-options');
+const closeChatBtn = document.getElementById('close-chat');
+const backBtn = document.getElementById('chat-back-btn');
+const restartBtn = document.getElementById('chat-restart-btn');
+
+// --- SEU TELEFONE AQUI ---
+const PHONE_NUMBER = "55129822995090"; 
+
+let currentStep = 'start';
+let historyStack = [];
+
+// Fluxo de Conversa
+const flow = {
+    start: {
+        text: "Olá! Sou a assistente da designer. Sobre o que gostaria de falar?",
+        buttons: [
+            { label: "Orçamento", next: "orcamento" },
+            { label: "Dúvidas", next: "duvidas" },
+            { label: "Falar no WhatsApp", whatsapp: "Olá, vim pelo site." }
+        ]
+    },
+    orcamento: {
+        text: "Legal! Qual o tipo de projeto?",
+        buttons: [
+            { label: "Livro Completo", whatsapp: "Olá, quero orçamento para Diagramação de Livro." },
+            { label: "Revista/Catálogo", whatsapp: "Olá, quero orçamento para Revista." },
+            { label: "Capa", whatsapp: "Olá, quero orçamento para uma Capa." },
+            { label: "Outros", whatsapp: "Olá, quero orçamento para um projeto personalizado." }
+        ]
+    },
+    duvidas: {
+        text: "Qual sua dúvida principal?",
+        buttons: [
+            { label: "Prazos de Entrega", whatsapp: "Olá, tenho dúvidas sobre prazos." },
+            { label: "Formas de Pagamento", whatsapp: "Olá, tenho dúvidas sobre pagamento." },
+            { label: "Outros Assuntos", whatsapp: "Olá, tenho uma dúvida geral." }
+        ]
+    }
+};
+
+// Funções do Chat
+function addMsg(text, type) {
+    const div = document.createElement('div');
+    div.className = `chat-msg msg-${type}`; // msg-bot ou msg-user
+    div.textContent = text;
+    chatBodyDiv.appendChild(div);
+    chatBodyDiv.scrollTop = chatBodyDiv.scrollHeight;
+}
+
+function loadStep(stepName, isBackNav = false) {
+    const step = flow[stepName];
+    
+    // Salva histórico se não for voltar e não for o início
+    if (!isBackNav && stepName !== 'start' && currentStep !== stepName) {
+        historyStack.push(currentStep);
+    }
+    if (stepName === 'start') historyStack = [];
+    
+    currentStep = stepName;
+    
+    // Mostra/Esconde botão Voltar
+    if(backBtn) {
+        backBtn.style.display = historyStack.length > 0 ? 'flex' : 'none';
+    }
+
+    // Mensagem do Bot (Delay para naturalidade)
+    setTimeout(() => addMsg(step.text, 'bot'), 300);
+
+    // Botões
+    chatOptsDiv.innerHTML = '';
+    step.buttons.forEach(btnData => {
+        const btn = document.createElement('button');
+        btn.className = 'option-btn';
+        btn.textContent = btnData.label;
+        
+        // CORREÇÃO AQUI: Adicionado 'e' e 'e.stopPropagation()'
+        // Isso impede que o clique no botão seja lido pelo 'document.click'
+        btn.addEventListener('click', (e) => {
+            e.stopPropagation(); 
+            addMsg(btnData.label, 'user');
+            
+            if (btnData.next) {
+                loadStep(btnData.next);
+            } else if (btnData.whatsapp) {
+                setTimeout(() => {
+                    addMsg("Abrindo WhatsApp...", 'bot');
+                    const link = `https://wa.me/${PHONE_NUMBER}?text=${encodeURIComponent(btnData.whatsapp)}`;
+                    window.open(link, '_blank');
+                }, 500);
+            }
+        });
+        chatOptsDiv.appendChild(btn);
+    });
+}
+
+// Eventos do Chat
+if (triggerBtn) {
+    triggerBtn.addEventListener('click', (e) => {
+        e.stopPropagation(); // Impede fechar ao clicar no botão
+        const isOpen = chatWin.classList.contains('show-chat');
+        
+        if (isOpen) {
+            chatWin.classList.remove('show-chat');
+        } else {
+            chatWin.classList.add('show-chat');
+            // Verifica se está vazio contando os filhos (ignora espaços em branco)
+            if (chatBodyDiv.children.length === 0) {
+                loadStep('start');
+            }
+        }
+    });
+}
+
+if (backBtn) {
+    backBtn.addEventListener('click', (e) => {
+        e.stopPropagation(); // Previne fechamento
+        if (historyStack.length > 0) {
+            const previousStep = historyStack.pop();
+            // Remove as 2 últimas mensagens (User + Bot) para limpar a tela
+            if(chatBodyDiv.lastChild) chatBodyDiv.lastChild.remove();
+            if(chatBodyDiv.lastChild) chatBodyDiv.lastChild.remove();
+            loadStep(previousStep, true);
+        }
+    });
+}
+
+if (restartBtn) {
+    restartBtn.addEventListener('click', (e) => {
+        e.stopPropagation(); // Previne fechamento
+        chatBodyDiv.innerHTML = ''; 
+        loadStep('start');
+    });
+}
+
+if (closeChatBtn) {
+    closeChatBtn.addEventListener('click', (e) => {
+        e.stopPropagation(); // Previne fechamento
+        chatWin.classList.remove('show-chat');
+    });
+}
+
+// Fechar Chat ao clicar fora
+document.addEventListener('click', (e) => {
+    if (chatWin && chatWin.classList.contains('show-chat')) {
+        // Se clicar dentro do chat, não faz nada
+        if (chatWin.contains(e.target) || triggerBtn.contains(e.target)) {
+            return;
+        }
+        // Se clicou fora, fecha
+        chatWin.classList.remove('show-chat');
+    }
 });
