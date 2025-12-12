@@ -4,11 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Studio Editorial | Portfólio</title>
-    
+    <link rel="shortcut icon" href="#" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
-    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+    <script>pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';</script>
     <script src="https://unpkg.com/lucide@latest"></script>
     <script src="https://cdn.jsdelivr.net/npm/page-flip/dist/js/page-flip.browser.js"></script>
     <link rel="stylesheet" href="style.css">
@@ -78,27 +79,31 @@
     <section id="work" class="work-section container reveal">
         <h2 class="section-title">Projetos Selecionados</h2>
         <div class="projects-grid">
-            <div class="project-card" data-title="Revista Vanguarda" data-desc="Diagramação completa e direção de arte para revista de moda trimestral. Foco em tipografia display e fotografia sangrada." data-img="https://images.unsplash.com/photo-1544947950-fa07a98d237f?q=80&w=800&auto=format&fit=crop">
+            <div class="project-card" 
+            data-title="Maternidade sem culpa" 
+            data-pdf="pdfs/Maternidade sem culpa_v3.pdf" 
+            data-pages="[1, 8, 3, 5, 13, 18, 126, 209]">
+
                 <div class="project-image">
-                    <img src="https://images.unsplash.com/photo-1544947950-fa07a98d237f?q=80&w=800&auto=format&fit=crop" alt="Projeto Revista">
+                    <img src="Sem título.png" alt="Projeto Revista">
                 </div>
                 <div class="project-info">
-                    <div><h3>Revista Vanguarda</h3><span>Editorial / Moda</span></div>
+                    <div><h3>Maternidade sem culpa</h3><span>Editorial / Devocional</span></div>
                     <i data-lucide="arrow-right" class="arrow-icon"></i>
                 </div>
             </div>
 
-            <div class="project-card" data-title="O Jardim Secreto" data-desc="Redesign de capa para edição de luxo de clássico da literatura. Uso de ilustrações botânicas e acabamento em hot-stamp." data-img="https://images.unsplash.com/photo-1512820790803-83ca734da794?q=80&w=800&auto=format&fit=crop">
+            <div class="project-card" data-title="Um Poder em Movimento" data-pdf="pdfs/Um poder em Movimento - v12.pdf" data-pages="[1, 4, 7, 10, 15, 22, 45, 241]">
                 <div class="project-image">
-                    <img src="https://images.unsplash.com/photo-1512820790803-83ca734da794?q=80&w=800&auto=format&fit=crop" alt="Projeto Livro">
+                    <img src="Sem título1.png" alt="Projeto Livro">
                 </div>
                 <div class="project-info">
-                    <div><h3>O Jardim Secreto</h3><span>Livro / Capa</span></div>
+                    <div><h3>Um Poder em Movimento</h3><span>Livro / Capa</span></div>
                     <i data-lucide="arrow-right" class="arrow-icon"></i>
                 </div>
             </div>
 
-             <div class="project-card" data-title="Relatório Anual" data-desc="Diagramação de relatório financeiro transformando dados complexos em infográficos claros e layout arejado." data-img="https://images.unsplash.com/photo-1589829085413-56de8ae18c73?q=80&w=800&auto=format&fit=crop">
+             <div class="project-card" data-title="" data-pdf="" data-pages="[]">
                 <div class="project-image">
                     <img src="https://images.unsplash.com/photo-1589829085413-56de8ae18c73?q=80&w=800&auto=format&fit=crop" alt="Relatório">
                 </div>
@@ -108,7 +113,7 @@
                 </div>
             </div>
 
-            <div class="project-card" data-title="Coleção Clássicos" data-desc="Identidade visual unificada para uma coleção de 10 volumes. Grid modular e paleta de cores sóbria." data-img="https://images.unsplash.com/photo-1532012197267-da84d127e765?q=80&w=800&auto=format&fit=crop">
+            <div class="project-card" data-title="" data-pdf="" data-pages="[]">
                 <div class="project-image">
                     <img src="https://images.unsplash.com/photo-1532012197267-da84d127e765?q=80&w=800&auto=format&fit=crop" alt="Coleção">
                 </div>
